@@ -4,7 +4,14 @@ func main() {
   name := "James"
   printGreeting("one", "two", "three")
   println(name);
-  total, result := add2(1, 2, 3)
+  anon_add2 := func (items ...int) (total int, result int) {
+    for _, item := range items{
+        result += item
+    }
+    total = len(items)
+    return
+  }
+  total, result := anon_add2(1, 2, 3)
   println("There are: ", total, " items, and the sum is: ", result)
 }
 
