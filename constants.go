@@ -11,8 +11,20 @@ const (
     third
 )
 
+var (
+  canChange = 1
+)
+
 func main() {
     println(first)
     println(second)
     println(third)
 }
+
+// if you try to set a const to something else in the program,
+// it will result in an error
+// func main() {
+//   //first += 1 --> will result in an error
+//   canChange += 1
+//   println(canChange)
+// }
