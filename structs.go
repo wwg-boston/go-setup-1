@@ -20,9 +20,14 @@ func main() {
   fmt.Println(myVar3)
 
   // create a reference type instead
-  myVar4 := new (myStruct{})
+  myVar4 := new (myStruct)
   myVar4.myField = "?"
   fmt.Println(myVar4)
+
+  // can create a reference type and also
+  // use the composite init
+  myVar5 := &myStruct{"*"}
+  fmt.Println(myVar5)
 }
 
 type myStruct struct {
