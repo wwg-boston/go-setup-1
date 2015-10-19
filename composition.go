@@ -18,6 +18,7 @@ type messagePrinter struct {
   message string
 }
 
+// this is a second-class object
 type advancedMessagePrinter struct {
   messagePrinter
 }
