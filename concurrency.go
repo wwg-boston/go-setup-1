@@ -7,23 +7,38 @@
 // Parallel : each thread is assigned to a seperate thread
 package main
 
-import "time"
 import "runtime"
 
 func main() {
   runtime.GOMAXPROCS(8)
-  go alphabet() // adding 'go' makes it run it concurrently
+
+  ch := make(chan string) // add a new channel
+  doneCh := make(chan bool)
+
+  go alphabet(ch) // adding 'go' makes it run it concurrently
+  go printer(ch, doneCh)
 
   println("This is before") // will finish current function
   // the main application can exit before the previous function is run,
   // so we have to put the application to sleep to let the function run
-  time.Sleep(100 * time.Millisecond)
+  <-doneCh
 }
 
-func alphabet() {
+func alphabet(ch chan string) {
   for i := byte('a'); i <= byte('z'); i++ {
-    go println(string(i)) //optimize application internally
+    ch <- string(i)   // passing data to the channel
   }
+  close(ch)  // makes it unavaible to recevive new messages
+}
+
+// need a function that will accept the message that
+// we pass to the channel
+func printer(ch chan string, doneCh chan bool) {
+  for i:= range ch {  // loop will exit when the channel is finished sending messages, which will happen when it's closed
+    println(i)
+  }
+
+  doneCh <-true
 }
 
 // Go routines: are very small
