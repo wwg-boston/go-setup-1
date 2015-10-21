@@ -12,7 +12,7 @@ import "runtime"
 
 func main() {
   runtime.GOMAXPROCS(8)
-  go alphabeth() // adding 'go' makes it run it concurrently
+  go alphabet() // adding 'go' makes it run it concurrently
 
   println("This is before") // will finish current function
   // the main application can exit before the previous function is run,
@@ -20,7 +20,7 @@ func main() {
   time.Sleep(100 * time.Millisecond)
 }
 
-func alphabeth() {
+func alphabet() {
   for i := byte('a'); i <= byte('z'); i++ {
     go println(string(i)) //optimize application internally
   }
