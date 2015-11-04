@@ -9,9 +9,11 @@ The packages that will be the most handy will be the `terminal-plus` package ins
 ## Installing Go
 We are going to install the binary version instead of building from source to keep things simple. 
 Going to [https://golang.org/dl/] you will find the current binary for your system. I am using Go version 1.5.1, once you install, you can check to see what version you have with: 
+
 `go version` 
 
 And you should see something like:
+
 `go version go1.5.1 darwin/amd64`
 
 ### Make sure Go is in your PATH
@@ -31,11 +33,13 @@ Google has complete documentation incase you run into any install issues: Gettin
 `go fmt` formats your Go code so that it meets Go standards and keeps it consistent across different contributors. 
 
 ### Vet
-`go vet` vets your program for mistakes 
+`go vet` vets your program for mistakes.
 
 ### Imports
 `go get code.google.com/p/go.tools/cmd/goimports` - this fixes all issues with imports, and will rewrite your import statement based on the strcuture of your code. 
 `brew install mercurial` (on Mac, if you don't have Mercurial installed) 
+
+Running: `goimports -w *. go` will remove all unused imports, and add imports that haven't been imported explicitly. 
 
 ## Contact information
 Feel free to email me (Alex) or Jen if you have any questions or suggestions for the meetups. 
