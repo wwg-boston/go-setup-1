@@ -23,15 +23,19 @@ The GOPATH lets you know where to find packages you're importing in your applica
 `export GOPATH=$HOME/go`
 
 ### Additional Installation Help
-Google has complete documentation incase you run into any install issues: (Getting Started)[https://golang.org/doc/install]
+Google has complete documentation incase you run into any install issues: Getting Started https://golang.org/doc/install
 
 ## Go Tools
 
 ### Fmt
-(`go fmt`) formats your Go code so that it meets Go standards and keeps it consistent across different contributors. 
+`go fmt` formats your Go code so that it meets Go standards and keeps it consistent across different contributors. 
 
 ### Vet
-(`go vet`) vets your program for mistakes 
+`go vet` vets your program for mistakes 
+
+### Imports
+`go get code.google.com/p/go.tools/cmd/goimports` - this fixes all issues with imports, and will rewrite your import statement based on the strcuture of your code. 
+`brew install mercurial` (on Mac, if you don't have Mercurial installed) 
 
 ## Contact information
 Feel free to email me (Alex) or Jen if you have any questions or suggestions for the meetups. 
